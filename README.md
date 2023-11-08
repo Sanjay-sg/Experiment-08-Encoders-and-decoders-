@@ -1,4 +1,4 @@
-# Experiment-08- Encoders-and-decoders 
+# Experiment-07- Encoders-and-decoders 
 ### AIM: To implement 8 to 3 Encoder and  3to8 Decoder using verilog and validate its outputs
 ### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
 ### SOFTWARE REQUIRED:   Quartus prime
@@ -55,32 +55,74 @@ D7 = X Y Z
 ## Figure -04 8 to 3 Decoder implementation 
 
 ### Procedure
-/* write all the steps invloved */
 
+1.create module encoder and decoder.
 
+2.Get inputs and outputs for encoders and decoders.
+
+3.perform or operation for encoder and and logic for decoders.
+
+4.perform RTL LOGIC and get waveform.
 
 ### PROGRAM 
 /*
 Program for Endocers and Decoders  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
+Developed by: SANJAY G
+RegisterNumber:  212222200030131
 */
 
+```
+ENCODER:
+module encoder(a,b,c,d0,d1,d2,d3,d4,d5,d6,d7);
+output a,b,c;
+input d0,d1,d2,d3,d4,d5,d6,d7;
+or(a,d4,d5,d6,d7);
+or(b,d2,d3,d6,d7);
+or(c,d1,d3,d5,d7);
+endmodule
 
+
+DECODER:
+module decoder(d0,d1,d2,d3,d4,d5,d6,d7,a,b,c);
+output d0,d1,d2,d3,d4,d5,d6,d7;
+input a,b,c;
+assign d0 = (~a&~b&~c);
+assign d1 = (~a&~b&c);
+assign d2 = (~a&b&~c);
+assign d3 = (~a&b&c);
+assign d4 = (a&~b&~c);
+assign d5 = (a&~b&c);
+assign d6 = (a&b&~c);
+assign d7 = (a&b&c);
+endmodule
+
+```
 
 
 
 
 ### RTL LOGIC  
 
+Encoder
 
+![245388930-38853c0d-7042-48c7-bcca-0e96189a547a](https://github.com/Sudharsanram/Experiment-08-Encoders-and-decoders-/assets/119393980/0505e2bc-6aa2-4089-8fb1-5ce51951f26a)
 
+Decoder
 
+![245389094-5791712d-4bd6-40d8-a1d4-bd152078ce12](https://github.com/Sudharsanram/Experiment-08-Encoders-and-decoders-/assets/119393980/1311b817-7dd7-4db4-ab38-626a7c50826b)
 
 
 
 
 ### TIMING DIGRAMS  
+
+Encoder
+
+![245389255-4220560c-5266-4437-be66-3125c54fada7](https://github.com/Sudharsanram/Experiment-08-Encoders-and-decoders-/assets/119393980/c15a5f84-b485-4ac4-bef8-bf2dfe24a51e)
+
+Decoder
+
+![245389331-62130ea6-bbb8-4c60-8c2b-fa440ebe5cbe](https://github.com/Sudharsanram/Experiment-08-Encoders-and-decoders-/assets/119393980/407c8ad2-8534-4c7e-9a20-587c099696e0)
 
 
 
@@ -88,9 +130,17 @@ RegisterNumber:
 
 ### TRUTH TABLE 
 
+Encoder
+
+![image](https://github.com/Sudharsanram/Experiment-08-Encoders-and-decoders-/assets/119393980/bd5be4c2-7afa-4ba9-8606-05514c0ba5b2)
 
 
+Decoder
+
+![image](https://github.com/Sudharsanram/Experiment-08-Encoders-and-decoders-/assets/119393980/786d0a22-1175-46fd-9496-c0a411d970bc)
 
 
 
 ### RESULTS 
+
+Thus the program to desing encoder and decoder is done.
